@@ -24,9 +24,7 @@ const RainbowButton = ({
       disabled={isDisabled}
       onClick={isDisabled ? undefined : onClick}
       type='button'
-      className={clsx(
-        `text-sm rainbow-shadow-button bg-gray-100 border-2 ${className}`
-      )}>
+      className={clsx(` bg-gray-100 ${className}`)}>
       {children}
     </button>
   );

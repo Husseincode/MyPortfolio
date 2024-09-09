@@ -7,7 +7,7 @@ import { GlobalPageContext } from '@/types/GlobalPageContext';
 const PageContextAPI = createContext<GlobalPageContext | undefined>(undefined);
 
 export const PageContext = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState('bg-white');
+  const [theme, setTheme] = useState('light');
 
   return (
     <PageContextAPI.Provider value={{ theme, setTheme }}>

@@ -27,6 +27,14 @@ body {
     text-wrap: balance;
   }
 }
+
+.dark {
+  @apply text-white [--line-color:theme(colors.gray.200/0.8)] bg-gray-900 bg-gradient-to-b from-black/40;
+}
+.white {
+  @apply text-zinc-800 bg-white;
+}
+
 /* Custom styles for rainbow shadow button */
 .rainbow-shadow-button {
   @apply rounded shadow-md relative;
@@ -59,11 +67,3 @@ body {
   opacity: 0.5;
   transition: opacity 0.5s ease;
 }
-/* 
-.rainbow-shadow-button:hover {
-  opacity: 0.8;
-}
-
-.rainbow-shadow-button:hover {
-  transform: scale(1.05);
-} */
