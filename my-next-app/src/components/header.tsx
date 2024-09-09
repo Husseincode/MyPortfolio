@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 import RainbowButton from '@/components/RainbowButton';
 import { FaGithub } from 'react-icons/fa';
 import { usePageContext } from '@/contexts/pageContext';
@@ -10,9 +10,13 @@ import { Bars, Moon, Sun } from '@/components/icons';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { data } from '@/components/headerdata';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const HeaderComponent = () => {
   const { theme, setTheme } = usePageContext();
+  const [keyID, setKey] = useState<number>(0);
+
   const changeTheme = () => {
     if (theme === 'light') {
       setTheme('dark');
@@ -37,7 +41,7 @@ const HeaderComponent = () => {
           alt=''
           className='rounded-full'
         />
-        <div className='hidden md:flex items-center gap-10 h-[inherit]'>
+        <div className='hidden md:w-fit md:flex md:justify-between py-1 gap-4'>
           {data.map((item) => {
             const { key, title, link, icon } = item;
             return (
@@ -45,7 +49,15 @@ const HeaderComponent = () => {
                 href={link}
                 title={title}
                 key={key}
-                className='cursor-pointer flex items-center gap-1'>
+                onMouseOver={() => {
+                  setKey(key);
+                }}
+                onMouseOut={() => {
+                  setKey(0);
+                }}
+                className={`cursor-pointer border-2 transition duration-500 border-gray-400 py-1 px-4 rounded flex items-center gap-1 ${
+                  keyID === key ? 'border-2' : 'border-transparent'
+                }`}>
                 {icon}
                 <span>{title}</span>
               </Link>
@@ -76,12 +88,16 @@ const HeaderComponent = () => {
           />
           <RainbowButton
             title='Follow me'
+            onClick={() => {
+              window.open('https://x.com/Abayomi_hussein', '_blank');
+            }}
             className={clsx(
               `px-4 py-1 rounded-md items-center gap-1 hidden md:flex ${
                 theme === 'bg-white text-zinc-800' ? 'bg-zinc-800 ' : ''
               } text-gray-500 border-2 border-gray-400`
             )}>
-            <span>Follow me</span>
+            <span>Follow on</span>
+            <FontAwesomeIcon className='w-4 h-4' icon={faXTwitter} />
           </RainbowButton>
           {/**smaller screens */}
           <span className='flex items-center md:hidden'>

@@ -29,10 +29,10 @@ body {
 }
 
 .dark {
-  @apply text-white [--line-color:theme(colors.gray.200/0.8)] bg-gray-900 bg-gradient-to-b from-black/40;
+  @apply text-gray-400 [--line-color:theme(colors.gray.200/0.8)] bg-gray-900 bg-gradient-to-b from-black/40;
 }
 .white {
-  @apply text-zinc-800 bg-white;
+  @apply text-gray-400 bg-white;
 }
 
 /* Custom styles for rainbow shadow button */
