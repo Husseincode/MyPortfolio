@@ -7,16 +7,18 @@ import RainbowButton from '@/components/RainbowButton';
 import Image from 'next/image';
 import sampleImage from '@/assets/svgs/sampleImage.svg';
 
-const Firstsection = () => {
+const FirstsectionComponent = () => {
   const { theme } = usePageContext();
   return (
     <section
-      className={clsx(`w-full flex justify-center pt-[130px] px-4 ${theme}`)}>
-      <div className='container  flex md:flex-row md:justify-between flex-col'>
-        <div className='h-[inherit] md:w-1/2 flex flex-col gap-4 p-3 justify-center'>
+      className={clsx(
+        `w-full flex justify-center pt-[100px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
+      )}>
+      <div className='container flex flex-col-reverse lg:flex-row lg:justify-between'>
+        <div className='h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center'>
           <h1
             className={clsx(
-              `text-4xl font-bold font-sans ${
+              `lg:text-5xl text-4xl block leading-tight font-bold font-sans ${
                 theme === 'dark' ? 'text-gray-400' : 'text-slate-800'
               }`
             )}>
@@ -32,8 +34,8 @@ const Firstsection = () => {
               e.preventDefault();
             }}
             action=''
-            className='flex md:flex-row flex-col gap-2 items-center'>
-            <div className='relative z-0 mb-6 group w-full md:w-[300px]'>
+            className='flex md:flex-row flex-col gap-2 md:items-center'>
+            <div className='relative z-0 mb-6 group w-full md:w-[400px] lg:w-[300px]'>
               <input
                 type='email'
                 name='email'
@@ -57,18 +59,20 @@ const Firstsection = () => {
             </RainbowButton>
           </form>
         </div>
-        <div className='h-[inherit] md:w-1/2'>
+        <div className='lg:flex lg:justify-end lg:items-end lg:h-[inherit] w-full md:full lg:w-1/2 mt-6 md:mt-0'>
           <Image
             src={sampleImage}
             alt=''
-            width={200}
-            height={100}
-            className='w-full md:w-[630px] h-[550px]'
+            width={270}
+            height={170}
+            className='w-full lg:w-fit lg:h-[550px]'
           />
         </div>
       </div>
     </section>
   );
 };
+
+const Firstsection = React.memo(FirstsectionComponent);
 
 export default Firstsection;

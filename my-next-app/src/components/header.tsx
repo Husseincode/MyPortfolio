@@ -9,7 +9,7 @@ import logo from '@/assets/svgs/image.svg';
 import { Bars, Moon, Sun } from '@/components/icons';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { data } from '@/components/headerdata';
+import { data } from '@/data/headerdata';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
@@ -28,7 +28,7 @@ const HeaderComponent = () => {
   return (
     <header
       className={clsx(
-        `fixed top-0 left-0 w-full min-h-10 p-4 bg-transparent backdrop-blur-md flex justify-center items-center ${
+        `fixed top-0 z-20 left-0 w-full min-h-10 py-4 md:px-8 px-4 bg-transparent backdrop-blur-md flex justify-center items-center ${
           theme === 'dark' ? 'shadow-2xl' : 'shadow-custom-gray'
         }`
       )}>
@@ -41,7 +41,7 @@ const HeaderComponent = () => {
           alt=''
           className='rounded-full'
         />
-        <div className='hidden md:w-fit md:flex md:justify-between py-1 gap-4'>
+        <div className='hidden lg:w-fit lg:flex lg:justify-between py-1 gap-4'>
           {data.map((item) => {
             const { key, title, link, icon } = item;
             return (
@@ -55,7 +55,7 @@ const HeaderComponent = () => {
                 onMouseOut={() => {
                   setKey(0);
                 }}
-                className={`cursor-pointer border-2 transition duration-500 border-gray-400 py-1 px-4 rounded flex items-center gap-1 ${
+                className={`cursor-pointer border-2 border-gray-400 py-1 px-4 rounded flex items-center gap-1 ${
                   keyID === key ? 'border-2' : 'border-transparent'
                 }`}>
                 {icon}
@@ -103,7 +103,7 @@ const HeaderComponent = () => {
           <span className='flex items-center md:hidden'>
             {' '}
             <Bars
-              color={theme === 'light' ? 'black' : 'white'}
+              color={theme === 'light' ? 'black' : '#52525b'}
               className='w-10 h-10'
             />
           </span>
