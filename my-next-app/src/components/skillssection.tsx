@@ -33,9 +33,11 @@ const SkillsSectionComponent = () => {
             <div
               key={id}
               className={clsx(
-                `min-h-[380px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border p-4 ${
-                  theme === 'dark' ? 'shadow-xl' : 'shadow-custom-gray'
-                } flex flex-col gap-4 bg-transparent py-6 px-6`
+                `min-h-[380px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border ${
+                  theme === 'dark'
+                    ? 'shadow-xl border-gray-600'
+                    : 'shadow-custom-gray'
+                } flex flex-col gap-3 bg-transparent py-4 px-4`
               )}>
               <Image
                 src={image}
@@ -44,7 +46,7 @@ const SkillsSectionComponent = () => {
                 height={100}
                 className='w-full h-[150px] rounded-t-xl object-cover object-center'
               />
-              <span className='text-xl font-semibold font-sans text-left'>
+              <span className='text-xl font-semibold font-sans text-left w-fit'>
                 {role}
               </span>
               <span className='text-left'>{details}</span>

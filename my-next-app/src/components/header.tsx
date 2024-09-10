@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React from 'react';
 import RainbowButton from '@/components/RainbowButton';
 import { FaGithub } from 'react-icons/fa';
 import { usePageContext } from '@/contexts/pageContext';
@@ -10,12 +10,12 @@ import { Bars, Moon, Sun } from '@/components/icons';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { data } from '@/data/headerdata';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const HeaderComponent = () => {
   const { theme, setTheme } = usePageContext();
-  const [keyID, setKey] = useState<number>(0);
+  const [keyID, setKey] = React.useState<number>(0);
 
   const changeTheme = () => {
     if (theme === 'light') {
@@ -86,18 +86,28 @@ const HeaderComponent = () => {
             }}
             className='w-6 h-6 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
           />
-          <RainbowButton
-            title='Follow me'
+          {/* <FaWhatsapp
             onClick={() => {
-              window.open('https://x.com/Abayomi_hussein', '_blank');
+              window.open('http://wa.me//+2348064116181', '_blank');
             }}
+            className='w-6 h-6 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
+          /> */}
+          <RainbowButton
+            title={`Let's work`}
+            onClick={() => {
+              // window.open('http://wa.me//+2348064116181', '_blank');
+              window.open('mailto:akanjiabayomi2@gmail.com', '_parent');
+            }}
+            // onClick={() => {
+            //   window.open('https://x.com/Abayomi_hussein', '_blank');
+            // }}
             className={clsx(
               `px-4 py-1 rounded-md items-center gap-1 hidden md:flex ${
                 theme === 'bg-white text-zinc-800' ? 'bg-zinc-800 ' : ''
               } text-gray-500 border-2 border-gray-400`
             )}>
-            <span>Follow on</span>
-            <FontAwesomeIcon className='w-4 h-4' icon={faXTwitter} />
+            <span>Lets work</span>
+            {/* <FontAwesomeIcon className='w-4 h-4' icon={faXTwitter} /> */}
           </RainbowButton>
           {/**smaller screens */}
           <span className='flex items-center md:hidden'>
