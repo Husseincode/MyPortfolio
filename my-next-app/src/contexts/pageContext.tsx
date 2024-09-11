@@ -14,9 +14,12 @@ const PageContextAPI = createContext<GlobalPageContext | undefined>(undefined);
 
 export const PageContext = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<string>(() => {
-    // Retrieve theme from local storage or default to 'light'
-    const storedTheme = localStorage.getItem('theme');
-    return storedTheme ? storedTheme : 'light';
+    if (typeof window !== 'undefined') {
+      // Retrieve theme from local storage or default to 'light'
+      const storedTheme = localStorage.getItem('theme');
+      return storedTheme ? storedTheme : 'light';
+    }
+    return 'light'; // Default value during SSR
   });
   const [email, setEmail] = useState<string>('');
 
@@ -31,11 +34,13 @@ export const PageContext = ({ children }: { children: ReactNode }) => {
     }
   }, []);
   useEffect(() => {
-    // Apply the theme to the document body
-    document.body.classList.remove('light', 'dark');
-    document.body.classList.add(theme);
-    // Save the theme to local storage
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined') {
+      // Apply the theme to the document body
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+      // Save the theme to local storage
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   return (

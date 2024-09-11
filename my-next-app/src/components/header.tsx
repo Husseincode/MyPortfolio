@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import RainbowButton from '@/components/RainbowButton';
 import { FaGithub } from 'react-icons/fa';
 import { usePageContext } from '@/contexts/pageContext';
@@ -24,6 +24,10 @@ const HeaderComponent = () => {
       setTheme('light');
     }
   };
+
+  useEffect(() => {
+    setTheme(theme);
+  }, [theme, setTheme]);
 
   return (
     <header
