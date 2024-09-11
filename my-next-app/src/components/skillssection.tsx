@@ -8,6 +8,7 @@ import React from 'react';
 
 const SkillsSectionComponent = () => {
   const { theme } = usePageContext();
+
   return (
     <section
       className={clsx(
@@ -26,7 +27,7 @@ const SkillsSectionComponent = () => {
           calling. Discover below how I can help you.
         </p>
       </div>
-      <section className='container flex flex-row gap-8 py-12 scrollbar-hide overflow-x-scroll min-w-[100%]'>
+      <section className='container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%]'>
         {skillsData.map((card) => {
           const { id, role, details, image } = card;
           return (

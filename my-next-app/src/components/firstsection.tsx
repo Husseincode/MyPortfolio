@@ -6,13 +6,38 @@ import { usePageContext } from '@/contexts/pageContext';
 import RainbowButton from '@/components/RainbowButton';
 import Image from 'next/image';
 import sampleImage from '@/assets/svgs/sampleImage.svg';
+import { toast } from 'react-hot-toast';
+import { isValidEmail } from '@/app/test/emailValidity';
 
 const FirstsectionComponent = () => {
-  const { theme } = usePageContext();
+  const { theme, email, setEmail } = usePageContext();
+  const handleEmail = (e: { target: { value: string } }) => {
+    setEmail(e.target.value);
+  };
+  const onSubmit = () => {
+    if (!email || !isValidEmail(email)) {
+      toast.error('Invalid email', {
+        style: {
+          background: '#27272a',
+          color: 'white',
+        },
+      });
+      return;
+    }
+
+    const recipientEmail = 'akanjiabayomi2@gmail.com';
+    const subject = 'REQUIRE OFFER';
+    const body = `Hello,\n\nPlease reach out to us at ${email}.\n\nBest regards,`;
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section
       className={clsx(
-        `w-full flex justify-center pt-[100px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
+        `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
       )}>
       <div className='container flex flex-col-reverse lg:flex-row lg:justify-between'>
         <div className='h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center'>
@@ -40,6 +65,8 @@ const FirstsectionComponent = () => {
                 type='email'
                 name='email'
                 id='email'
+                value={email}
+                onChange={handleEmail}
                 className={clsx(
                   `block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-zinc-800 peer mt-4 ${
                     theme === 'dark' ? 'text-gray-400' : 'text-zinc-800'
@@ -54,7 +81,9 @@ const FirstsectionComponent = () => {
                 Your Email
               </label>
             </div>
-            <RainbowButton className='bg-zinc-800 text-sm py-2.5 px-3 md:w-[initial] w-full text-white rounded-md'>
+            <RainbowButton
+              onClick={onSubmit}
+              className='bg-zinc-800 py-2.5 px-3 md:w-[initial] w-full text-white rounded-md'>
               {'Require Offer'.toUpperCase()}
             </RainbowButton>
           </form>
