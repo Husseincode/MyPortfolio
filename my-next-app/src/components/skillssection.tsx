@@ -35,10 +35,8 @@ const SkillsSectionComponent = () => {
               key={id}
               className={clsx(
                 `min-h-[380px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border ${
-                  theme === 'dark'
-                    ? 'shadow-xl border-gray-600'
-                    : 'shadow-custom-gray'
-                } flex flex-col gap-3 bg-transparent py-4 px-4`
+                  theme === 'dark' ? 'border-gray-600' : ''
+                } flex flex-col gap-3 bg-transparent py-4 px-4 shadow-md`
               )}>
               <Image
                 src={image}

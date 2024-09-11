@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import RainbowButton from '@/components/RainbowButton';
 import { FaGithub } from 'react-icons/fa';
 import { usePageContext } from '@/contexts/pageContext';
@@ -10,6 +10,7 @@ import { Bars, Moon, Sun } from '@/components/icons';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { data } from '@/data/headerdata';
+//import Cookies from 'js-cookie';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
@@ -25,16 +26,10 @@ const HeaderComponent = () => {
     }
   };
 
-  useEffect(() => {
-    setTheme(theme);
-  }, [theme, setTheme]);
-
   return (
     <header
       className={clsx(
-        `fixed top-0 z-20 left-0 w-full min-h-10 py-4 md:px-8 px-4 bg-transparent backdrop-blur-md flex justify-center items-center ${
-          theme === 'dark' ? 'shadow-2xl' : 'shadow-custom-gray'
-        }`
+        `fixed top-0 z-20 left-0 w-full min-h-10 py-4 md:px-8 px-4 bg-transparent backdrop-blur-md flex justify-center items-center shadow-md`
       )}>
       <nav className='container flex justify-between items-center'>
         {/* <span className='text-xl font-serif'>Supreme</span> */}
@@ -106,9 +101,7 @@ const HeaderComponent = () => {
             //   window.open('https://x.com/Abayomi_hussein', '_blank');
             // }}
             className={clsx(
-              `px-4 py-1 rounded-md items-center gap-1 hidden md:flex ${
-                theme === 'bg-white text-zinc-800' ? 'bg-zinc-800 ' : ''
-              } text-gray-500 border-2 border-gray-400`
+              `px-4 py-1 rounded-md items-center gap-1 hidden md:flex text-gray-500 border-2 border-gray-400`
             )}>
             <span>Lets work</span>
             {/* <FontAwesomeIcon className='w-4 h-4' icon={faXTwitter} /> */}
@@ -116,10 +109,7 @@ const HeaderComponent = () => {
           {/**smaller screens */}
           <span className='flex items-center md:hidden'>
             {' '}
-            <Bars
-              color={theme === 'light' ? 'black' : '#52525b'}
-              className='w-10 h-10'
-            />
+            <Bars color={'#52525b'} className='w-10 h-10' />
           </span>
         </div>
       </nav>

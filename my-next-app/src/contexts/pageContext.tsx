@@ -9,37 +9,28 @@ import React, {
   useEffect,
 } from 'react';
 import { GlobalPageContext } from '@/types/GlobalPageContext';
+import Cookies from 'js-cookie';
 
 const PageContextAPI = createContext<GlobalPageContext | undefined>(undefined);
 
 export const PageContext = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<string>(() => {
     if (typeof window !== 'undefined') {
-      // Retrieve theme from local storage or default to 'light'
-      const storedTheme = localStorage.getItem('theme');
+      const storedTheme = Cookies.get('theme');
       return storedTheme ? storedTheme : 'light';
     }
-    return 'light'; // Default value during SSR
+    return 'light';
   });
   const [email, setEmail] = useState<string>('');
 
-  {
-    /**use Effects */
-  }
-  useEffect(() => {
-    // Retrieve theme from local storage
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
-  }, []);
+  /**use Effects */
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // Apply the theme to the document body
       document.body.classList.remove('light', 'dark');
       document.body.classList.add(theme);
-      // Save the theme to local storage
-      localStorage.setItem('theme', theme);
+
+      Cookies.set('theme', theme);
     }
   }, [theme]);
 

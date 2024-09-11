@@ -43,9 +43,7 @@ const FirstsectionComponent = () => {
         <div className='h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center'>
           <h1
             className={clsx(
-              `lg:text-5xl text-4xl block leading-tight font-bold font-sans ${
-                theme === 'dark' ? 'text-gray-400' : 'text-slate-800'
-              }`
+              `lg:text-5xl text-4xl block leading-tight font-bold font-sans`
             )}>
             Welcome to my Web Development Portofolio!
           </h1>
