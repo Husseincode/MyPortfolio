@@ -10,7 +10,7 @@ import { toast } from 'react-hot-toast';
 import { isValidEmail } from '@/app/test/emailValidity';
 
 const FirstsectionComponent = () => {
-  const { theme, email, setEmail } = usePageContext();
+  const { email, setEmail } = usePageContext();
   const handleEmail = (e: { target: { value: string } }) => {
     setEmail(e.target.value);
   };
@@ -39,7 +39,7 @@ const FirstsectionComponent = () => {
       className={clsx(
         `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
       )}>
-      <div className='container flex flex-col-reverse lg:flex-row lg:justify-between'>
+      <div className='md:w-[1440px] w-full flex flex-col-reverse lg:flex-row lg:justify-between'>
         <div className='h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center'>
           <h1
             className={clsx(
@@ -55,6 +55,7 @@ const FirstsectionComponent = () => {
           <form
             onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
               e.preventDefault();
+              onSubmit();
             }}
             action=''
             className='flex md:flex-row flex-col gap-2 md:items-center'>
@@ -66,12 +67,11 @@ const FirstsectionComponent = () => {
                 value={email}
                 onChange={handleEmail}
                 className={clsx(
-                  `block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-zinc-800 peer mt-4 ${
-                    theme === 'dark' ? 'text-gray-400' : 'text-zinc-800'
-                  }`
+                  `block pt-2.5 pb-1 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-zinc-800 peer mt-4 `
                 )}
                 placeholder=' '
                 required
+                autoComplete='off'
               />
               <label
                 htmlFor='email'

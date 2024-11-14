@@ -1,6 +1,7 @@
 /** @format */
 
 'use client';
+import ContactUs from '@/components/contactUs';
 import Firstsection from '@/components/firstsection';
 import { Footer } from '@/components/footer';
 import Header from '@/components/header';
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <Firstsection />
       <SkillsSection />
+      <ContactUs />
       <Footer />
     </main>
   );

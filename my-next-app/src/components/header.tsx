@@ -31,7 +31,7 @@ const HeaderComponent = () => {
       className={clsx(
         `fixed top-0 z-20 left-0 w-full min-h-10 py-4 md:px-8 px-4 bg-transparent backdrop-blur-md flex justify-center items-center shadow-md`
       )}>
-      <nav className='container flex justify-between items-center'>
+      <nav className='w-full md:w-[1440px] flex justify-between items-center'>
         {/* <span className='text-xl font-serif'>Supreme</span> */}
         <Image
           src={logo}
@@ -68,13 +68,13 @@ const HeaderComponent = () => {
           {/* <FaTwitter /> */}
           {theme === 'light' ? (
             <Moon
-              className='w-6 h-6 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
+              className='w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
               color={'#52525b'}
               onClick={changeTheme}
             />
           ) : (
             <Sun
-              className='w-6 h-6 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
+              className='w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
               color={'#52525b'}
               onClick={changeTheme}
             />
@@ -83,7 +83,7 @@ const HeaderComponent = () => {
             onClick={() => {
               window.open('https://github.com/Husseincode', '_blank');
             }}
-            className='w-6 h-6 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
+            className='w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
           />
           {/* <FaWhatsapp
             onClick={() => {

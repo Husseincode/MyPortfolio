@@ -14,7 +14,7 @@ const SkillsSectionComponent = () => {
       className={clsx(
         `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[80px] md:px-8 px-4`
       )}>
-      <div className='container flex flex-col items-center justify-center gap-6 lg:w-10/12'>
+      <div className='md:w-[1440px] w-full flex flex-col items-center justify-center gap-6 lg:w-10/12'>
         <p className='font-bold text-base font-sans'>
           {'My Skills'.toUpperCase()}
         </p>
@@ -45,10 +45,10 @@ const SkillsSectionComponent = () => {
                 height={100}
                 className='w-full h-[150px] rounded-t-xl object-cover object-center'
               />
-              <span className='text-xl font-semibold font-sans text-left w-fit'>
+              <span className='text-lg font-semibold font-sans text-left w-fit'>
                 {role}
               </span>
-              <span className='text-left'>{details}</span>
+              <span className='text-left text-gray-500'>{details}</span>
             </div>
           );
         })}
