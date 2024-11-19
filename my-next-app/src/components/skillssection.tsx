@@ -59,10 +59,10 @@ const SkillsSectionComponent = () => {
         className={`md:w-[1440px] w-full flex flex-col items-center justify-center gap-6 lg:w-10/12 ${
           isSecondSectionTextVisible && 'slide-from-left'
         }`}>
-        <p className='font-bold text-base font-sans slide-from-right'>
+        <p className='font-bold text-base slide-from-right'>
           {'My Skills'.toUpperCase()}
         </p>
-        <h2 className='font-semibold md:text-5xl text-4xl font-sans slide-from-left'>
+        <h2 className='font-semibold md:text-5xl text-4xl slide-from-left'>
           What I do
         </h2>
         <p className='text-center text-xl leading-relaxed mx-auto slide-from-bottom'>
@@ -93,7 +93,7 @@ const SkillsSectionComponent = () => {
                 height={100}
                 className='w-full h-[150px] rounded-t-xl object-cover object-center'
               />
-              <span className='text-lg font-semibold font-sans text-left w-fit'>
+              <span className='text-lg font-semibold text-left w-fit'>
                 {role}
               </span>
               <span className='text-left text-gray-500'>{details}</span>

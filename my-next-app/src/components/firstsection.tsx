@@ -68,7 +68,7 @@ const FirstsectionComponent = () => {
           }`}>
           <h1
             className={clsx(
-              `lg:text-5xl text-4xl block leading-tight font-bold font-sans slide-from-top`
+              `lg:text-5xl text-4xl block leading-tight font-bold slide-from-top`
             )}>
             Welcome to my Web Development Portofolio!
           </h1>
