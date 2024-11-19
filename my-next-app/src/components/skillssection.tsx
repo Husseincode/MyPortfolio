@@ -96,7 +96,9 @@ const SkillsSectionComponent = () => {
               <span className='text-lg font-semibold text-left w-fit'>
                 {role}
               </span>
-              <span className='text-left text-gray-500'>{details}</span>
+              <span className='text-left text-gray-500 text-base'>
+                {details}
+              </span>
             </div>
           );
         })}

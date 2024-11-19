@@ -83,7 +83,7 @@ const FirstsectionComponent = () => {
               onSubmit();
             }}
             action=''
-            className='flex slide-from-bottom md:flex-row flex-col gap-2 md:items-center'>
+            className='flex slide-from-bottom md:flex-row flex-col gap-2 md:gap-0 md:items-center'>
             <div className='relative z-0 mb-6 group w-full md:w-[400px] lg:w-[300px]'>
               <input
                 type='email'
@@ -106,7 +106,7 @@ const FirstsectionComponent = () => {
             </div>
             <RainbowButton
               onClick={onSubmit}
-              className='bg-zinc-800 py-2.5 px-3 md:w-[initial] w-full text-white rounded-md'>
+              className='bg-zinc-800 py-2.5 px-3 md:-mt-3 md:w-[initial] w-full text-white rounded-r-md rounded-l-md md:rounded-r-md md:rounded-l-0'>
               {'Require Offer'.toUpperCase()}
             </RainbowButton>
           </form>
