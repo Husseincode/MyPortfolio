@@ -1,5 +1,6 @@
 /** @format */
 
+'use client';
 import React from 'react';
 import RainbowButton from '@/components/RainbowButton';
 import { FaGithub } from 'react-icons/fa';
@@ -13,6 +14,7 @@ import { data } from '@/data/headerdata';
 //import Cookies from 'js-cookie';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import '@/styles/styles.css';
 
 const HeaderComponent = () => {
   const { theme, setTheme } = usePageContext();
@@ -28,9 +30,7 @@ const HeaderComponent = () => {
 
   return (
     <header
-      className={clsx(
-        `fixed top-0 z-20 left-0 w-full min-h-10 py-4 md:px-8 px-4 bg-transparent backdrop-blur-md flex justify-center items-center shadow-md`
-      )}>
+      className={`fixed top-0 z-20 left-0 w-full min-h-10 py-4 md:px-8 px-4 bg-transparent backdrop-blur-md flex justify-center items-center shadow-md slide-from-top`}>
       <nav className='w-full md:w-[1440px] flex justify-between items-center'>
         {/* <span className='text-xl font-serif'>Supreme</span> */}
         <Image

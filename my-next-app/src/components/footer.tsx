@@ -1,15 +1,42 @@
 /** @format */
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+'use client';
+import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { FaFacebook, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import '@/styles/styles.css';
 
 const FooterComponent = () => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const getRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionTop: number | undefined | any =
+        getRef?.current?.getBoundingClientRect()?.top;
+      const windowHeight = window.innerHeight;
+
+      setIsVisible(sectionTop < windowHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <footer
+      ref={getRef}
       className={clsx(
-        `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[20px] md:px-8 pt-4 py-4 pb-10`
+        `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[20px] md:px-8 pt-4 py-4 pb-10 ${
+          isVisible && 'slide-from-left'
+        }`
       )}>
       <section className='container flex flex-col-reverse md:flex-row md:justify-between justify-center items-center gap-4 md:gap-0'>
         <span className='text-sm'>

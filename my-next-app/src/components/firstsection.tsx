@@ -1,6 +1,7 @@
 /** @format */
 
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { usePageContext } from '@/contexts/pageContext';
 import RainbowButton from '@/components/RainbowButton';
@@ -8,9 +9,12 @@ import Image from 'next/image';
 import sampleImage from '@/assets/svgs/sampleImage.svg';
 import { toast } from 'react-hot-toast';
 import { isValidEmail } from '@/app/test/emailValidity';
+import '@/styles/styles.css';
 
 const FirstsectionComponent = () => {
   const { email, setEmail } = usePageContext();
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const getRef = useRef<HTMLDivElement | null>(null);
   const handleEmail = (e: { target: { value: string } }) => {
     setEmail(e.target.value);
   };
@@ -34,20 +38,41 @@ const FirstsectionComponent = () => {
     window.location.href = mailtoLink;
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionTop: number | undefined | any =
+        getRef?.current?.getBoundingClientRect()?.top;
+      const windowHeight = window.innerHeight;
+
+      setIsVisible(sectionTop < windowHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <section
       className={clsx(
         `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
       )}>
       <div className='md:w-[1440px] w-full flex flex-col-reverse lg:flex-row lg:justify-between'>
-        <div className='h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center'>
+        <div
+          ref={getRef}
+          className={`h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center ${
+            isVisible && 'slide-from-left'
+          }`}>
           <h1
             className={clsx(
-              `lg:text-5xl text-4xl block leading-tight font-bold font-sans`
+              `lg:text-5xl text-4xl block leading-tight font-bold font-sans slide-from-top`
             )}>
             Welcome to my Web Development Portofolio!
           </h1>
-          <p className='text-xl leading-relaxed text-gray-500'>
+          <p className='text-xl leading-relaxed text-gray-500 slide-from-left'>
             I&apos;m Akanji Abayomi, a passionate web developer based in
             Nigeria. Here, you&apos;ll get a glimpse of my journey in the world
             of web development, where creativity meets functionality.
@@ -58,7 +83,7 @@ const FirstsectionComponent = () => {
               onSubmit();
             }}
             action=''
-            className='flex md:flex-row flex-col gap-2 md:items-center'>
+            className='flex slide-from-bottom md:flex-row flex-col gap-2 md:items-center'>
             <div className='relative z-0 mb-6 group w-full md:w-[400px] lg:w-[300px]'>
               <input
                 type='email'
@@ -86,7 +111,7 @@ const FirstsectionComponent = () => {
             </RainbowButton>
           </form>
         </div>
-        <div className='lg:flex lg:justify-end lg:items-end lg:h-[inherit] w-full md:full lg:w-1/2 mt-6 md:mt-0'>
+        <div className='lg:flex lg:justify-end lg:items-end lg:h-[inherit] w-full md:full lg:w-1/2 mt-6 md:mt-0 slide-from-right'>
           <Image
             src={sampleImage}
             alt=''
