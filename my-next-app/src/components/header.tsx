@@ -7,7 +7,7 @@ import { FaGithub } from 'react-icons/fa';
 import { usePageContext } from '@/contexts/pageContext';
 import Image from 'next/image';
 import logo from '@/assets/svgs/image.svg';
-import { Bars, Moon, Sun } from '@/components/icons';
+import { Moon, Sun } from '@/components/icons';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { data } from '@/data/headerdata';
@@ -68,13 +68,17 @@ const HeaderComponent = () => {
           {/* <FaTwitter /> */}
           {theme === 'light' ? (
             <Moon
-              className='w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
+              className={`w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer ${
+                theme === 'light' && 'slide-from-top'
+              }`}
               color={'#52525b'}
               onClick={changeTheme}
             />
           ) : (
             <Sun
-              className='w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer'
+              className={`w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer ${
+                theme === 'dark' && 'slide-from-bottom'
+              }`}
               color={'#52525b'}
               onClick={changeTheme}
             />
@@ -107,10 +111,10 @@ const HeaderComponent = () => {
             {/* <FontAwesomeIcon className='w-4 h-4' icon={faXTwitter} /> */}
           </RainbowButton>
           {/**smaller screens */}
-          <span className='flex items-center md:hidden'>
+          {/* <span className='flex items-center md:hidden'>
             {' '}
             <Bars color={'#52525b'} className='w-10 h-10' />
-          </span>
+          </span> */}
         </div>
       </nav>
     </header>

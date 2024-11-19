@@ -15,17 +15,21 @@ const FirstsectionComponent = () => {
   const { email, setEmail } = usePageContext();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const getRef = useRef<HTMLDivElement | null>(null);
+
   const handleEmail = (e: { target: { value: string } }) => {
     setEmail(e.target.value);
   };
+
+  const toastStyle = {
+    style: {
+      background: '#27272a',
+      color: 'white',
+    },
+  };
   const onSubmit = () => {
-    if (!email || !isValidEmail(email)) {
-      toast.error('Invalid email', {
-        style: {
-          background: '#27272a',
-          color: 'white',
-        },
-      });
+    if (!email) return toast.error('Please, input an email', toastStyle);
+    if (!isValidEmail(email)) {
+      toast.error('Invalid email', toastStyle);
       return;
     }
 
