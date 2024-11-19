@@ -34,7 +34,7 @@ const FooterComponent = () => {
     <footer
       ref={getRef}
       className={clsx(
-        `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[20px] md:px-8 pt-4 py-4 pb-10 ${
+        `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[20px] md:px-8 pt-4 py-4 pb-10 overflow-hidden ${
           isVisible && 'slide-from-left'
         }`
       )}>

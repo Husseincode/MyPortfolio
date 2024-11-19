@@ -52,7 +52,7 @@ const SkillsSectionComponent = () => {
   return (
     <section
       className={clsx(
-        `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[80px] md:px-8 px-4`
+        `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[80px] md:px-8 px-4 overflow-hidden`
       )}>
       <div
         ref={textRef}
@@ -72,7 +72,7 @@ const SkillsSectionComponent = () => {
         </p>
       </div>
       <section
-        className={`container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%]`}>
+        className={`container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%] overflow-hidden`}>
         {skillsData.map((card) => {
           const { id, role, details, image } = card;
           return (

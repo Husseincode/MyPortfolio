@@ -60,7 +60,7 @@ const FirstsectionComponent = () => {
       className={clsx(
         `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
       )}>
-      <div className='md:w-[1440px] w-full flex flex-col-reverse lg:flex-row lg:justify-between'>
+      <div className='md:w-[1440px] w-full flex flex-col-reverse lg:flex-row lg:justify-between overflow-hidden'>
         <div
           ref={getRef}
           className={`h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center ${
