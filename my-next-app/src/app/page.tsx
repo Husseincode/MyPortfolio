@@ -1,22 +1,11 @@
 /** @format */
 
 'use client';
-// import ContactUs from '@/components/contactUs';
-import Firstsection from '@/components/firstsection';
-import { Footer } from '@/components/footer';
-import Header from '@/components/header';
-import { SkillsSection } from '@/components/skillssection';
+
+import Entry from '@/components/entry';
 
 export default function Home() {
-  return (
-    <main className={`min-h-[100vh] transition duration-500`}>
-      <Header />
-      <Firstsection />
-      <SkillsSection />
-      {/* <ContactUs /> */}
-      <Footer />
-    </main>
-  );
+  return <Entry />;
 }
 
 {
