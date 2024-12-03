@@ -110,7 +110,7 @@ const FirstsectionComponent = () => {
             </div>
             <RainbowButton
               onClick={onSubmit}
-              className='bg-zinc-800 py-2.5 px-3 md:-mt-3 md:w-[initial] w-full text-white rounded-r-md rounded-l-md md:rounded-r-md md:rounded-l-0'>
+              className='bg-zinc-800 py-2.5 px-3 md:-mt-3 md:w-[initial] w-full text-white rounded-r-md rounded-l-md md:rounded-r-md md:rounded-l-0 border-none'>
               {'Require Offer'.toUpperCase()}
             </RainbowButton>
           </form>
