@@ -17,9 +17,9 @@ export const PageContext = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const storedTheme = Cookies.get('theme');
-      return storedTheme ? storedTheme : 'light';
+      return storedTheme ? storedTheme : 'dark';
     }
-    return 'light';
+    return 'dark';
   });
   const [email, setEmail] = useState<string>('');
 

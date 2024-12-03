@@ -62,7 +62,7 @@ const FirstsectionComponent = () => {
   return (
     <section
       className={clsx(
-        `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-4`
+        `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-6`
       )}>
       <div className='md:w-[1440px] w-full flex flex-col-reverse lg:flex-row lg:justify-between overflow-hidden'>
         <div
