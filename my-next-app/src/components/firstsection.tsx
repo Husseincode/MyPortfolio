@@ -35,7 +35,7 @@ const FirstsectionComponent = () => {
 
     const recipientEmail = 'akanjiabayomi2@gmail.com';
     const subject = 'REQUIRE OFFER';
-    const body = `Hello,\n\nPlease reach out to us at ${email}.\n\nBest regards,`;
+    const body = `Hello,\n\nPlease reach out to us at ${recipientEmail}.\n\nBest regards,`;
     const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
