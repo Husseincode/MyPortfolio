@@ -5,9 +5,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { FaFacebook, FaGithub, FaWhatsapp } from 'react-icons/fa';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import twitterIcon from '@/assets/svgs/twitter-svgrepo-com.svg';
 import '@/styles/styles.css';
+import Image from 'next/image';
 
 const FooterComponent = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -57,6 +57,7 @@ const FooterComponent = () => {
                 '_blank'
               );
             }}
+            color='dodgerblue'
             className='w-5 h-5 cursor-pointer'
           />
           <FaWhatsapp
@@ -64,13 +65,17 @@ const FooterComponent = () => {
               window.open('http://wa.me//+2348064116181', '_blank');
             }}
             className='w-5 h-5 cursor-pointer'
+            color='green'
           />
-          <FontAwesomeIcon
+          <Image
             onClick={() => {
               window.open('https://x.com/Abayomi_hussein', '_blank');
             }}
             className='w-5 h-5 cursor-pointer'
-            icon={faXTwitter}
+            src={twitterIcon}
+            alt=''
+            width={20}
+            height={20}
           />
         </div>
       </section>
