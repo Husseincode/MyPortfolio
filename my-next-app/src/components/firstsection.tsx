@@ -77,8 +77,8 @@ const FirstsectionComponent = () => {
             Welcome to my Web Development Portofolio!
           </h1>
           <p className='text-xl leading-relaxed text-gray-500 slide-from-left'>
-            I&apos;m Akanji Abayomi, a passionate and innovative web developer
-            from Nigeria. Here, I share my journey in the world of web
+            I&apos;m Akanji Abayomi, a passionate and innovative Frontend Web
+            developer from Nigeria. Here, I share my journey in the world of web
             development, where creativity seamlessly blends with functionality.
           </p>
           <form

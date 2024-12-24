@@ -4,51 +4,19 @@ import { usePageContext } from '@/contexts/pageContext';
 import { skillsData } from '@/data/data';
 import clsx from 'clsx';
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import '@/styles/styles.css';
+import { useVisibility } from '@/lib/utils/ref';
+import Languauge from './languauge';
 
 const SkillsSectionComponent = () => {
   const getRef = useRef<HTMLDivElement | null>(null);
   const { theme } = usePageContext();
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   const textRef = useRef<HTMLDivElement | null>(null);
-  const [isSecondSectionTextVisible, setIsSecondSectionTextVisible] =
-    useState<boolean>(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sectionTop: number | undefined | any =
-        getRef?.current?.getBoundingClientRect()?.top;
-      const windowHeight = window.innerHeight;
-      // console.log(sectionTop);
+  const isVisible = useVisibility(getRef);
+  const isSecondSectionTextVisible = useVisibility(textRef);
 
-      setIsVisible(sectionTop < windowHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleTextScroll = () => {
-      const sectionTop: number | undefined | any =
-        textRef.current?.getBoundingClientRect()?.top;
-      const windowHeight = window.innerHeight;
-
-      setIsSecondSectionTextVisible(sectionTop < windowHeight);
-    };
-
-    window.addEventListener('scroll', handleTextScroll);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleTextScroll);
-    };
-  }, []);
   return (
     <section
       className={clsx(
@@ -74,17 +42,17 @@ const SkillsSectionComponent = () => {
       <section
         className={`container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%] overflow-hidden`}>
         {skillsData.map((card) => {
-          const { id, role, details, image } = card;
+          const { id, role, details, image, langs } = card;
           return (
             <div
               key={id}
               ref={getRef}
               className={clsx(
-                `min-h-[380px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border  ${
+                `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border  ${
                   isVisible && 'slide-from-right'
                 } ${
                   theme === 'dark' ? 'border-gray-600' : ''
-                } flex flex-col gap-3 bg-transparent py-4 px-4 shadow-md`
+                } flex flex-col justify-between gap-3 bg-transparent py-4 px-4 shadow-md`
               )}>
               <Image
                 src={image}
@@ -93,12 +61,26 @@ const SkillsSectionComponent = () => {
                 height={100}
                 className='w-full h-[150px] rounded-t-xl object-cover object-center'
               />
-              <span className='text-lg font-semibold text-left w-fit'>
-                {role}
-              </span>
-              <span className='text-left text-gray-500 text-base'>
-                {details}
-              </span>
+              <div className='flex flex-col gap-3'>
+                <span className='text-lg font-semibold text-left w-fit'>
+                  {role}
+                </span>
+                <span className='text-left text-gray-500 text-base'>
+                  {details}
+                </span>
+              </div>
+
+              <div className='flex flex-wrap gap-2'>
+                {langs?.map((item, idx: number) => (
+                  <Languauge
+                    key={idx}
+                    name={item.name}
+                    color={item.color}
+                    svg={item.svg}
+                    icon={item.icon}
+                  />
+                ))}
+              </div>
             </div>
           );
         })}

@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer';
 import Header from '@/components/header';
 import { SkillsSection } from '@/components/skillssection';
 import LoadingScreen from '@/components/loading';
+import { Projects } from './projects';
 
 const Entry = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,13 +20,14 @@ const Entry = () => {
     return () => clearInterval(intervalID);
   }, []);
 
-  if (isLoading) return <LoadingScreen timeElapsed={!isLoading} />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <main className={`min-h-[100vh] transition duration-500`}>
       <Header />
       <Firstsection />
       <SkillsSection />
+      <Projects />
       <Footer />
     </main>
   );

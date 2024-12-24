@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { PageContext } from '@/contexts/pageContext';
 import { Toaster } from 'react-hot-toast';
+//import Head from 'next/head';
 
 // const geistSans = localFont({
 //   src: './fonts/GeistVF.woff',
@@ -30,6 +31,13 @@ export default function RootLayout({
   return (
     <PageContext>
       <html lang='en-US'>
+        <head>
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+          />
+        </head>
         <body className={` transition duration-500 antialiased`}>
           {children}
           <Toaster />
