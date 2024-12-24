@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import React, { FC } from 'react';
-import Languauge from './languauge';
+//import Languauge from './languauge';
 
 interface CardProps {
   id: string;
@@ -22,12 +22,12 @@ const Card: FC<CardProps> = ({
   id,
   ref,
   title,
-  langs,
+
   project,
   className,
   style,
   description,
-  url,
+
   image,
 }) => {
   return (
