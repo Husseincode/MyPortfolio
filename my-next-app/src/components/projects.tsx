@@ -7,7 +7,7 @@ import Card from './card';
 export const Projects = () => {
   return (
     <section
-      className={clsx(`w-full flex justify-center pt-[50px] md:px-8 px-6`)}>
+      className={clsx(`w-full flex justify-center pt-[50px] md:px-8 px-4`)}>
       <div className='md:w-[1440px] w-full flex flex-col justify-center items-center overflow-hidden gap-[50px]'>
         <h2 className='font-semibold border-b-[3px] border-blue-500 pb-1 md:text-5xl text-4xl slide-from-left text-center'>
           Projects
