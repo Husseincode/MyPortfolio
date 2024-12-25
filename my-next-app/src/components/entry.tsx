@@ -23,7 +23,7 @@ const Entry = () => {
   if (isLoading) return <LoadingScreen />;
 
   return (
-    <main className={`min-h-[100vh] transition duration-500`}>
+    <main className={`transition duration-500`}>
       <Header />
       <Firstsection />
       <SkillsSection />

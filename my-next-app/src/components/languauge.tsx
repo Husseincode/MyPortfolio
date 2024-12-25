@@ -11,14 +11,20 @@ interface LanguageProps {
   icon: any;
   color: string;
   svg?: any;
+  url?: string;
 }
-const Languauge: FC<LanguageProps> = ({ name, icon, color, svg }) => {
+const Languauge: FC<LanguageProps> = ({ name, icon, color, svg, url }) => {
   const { theme } = usePageContext();
   return (
     <button
       type='button'
-      title={name}
-      disabled
+      title={url ? url : name}
+      onClick={() => {
+        if (url) {
+          window.open(url, '_blank', 'noopener, noreferrer');
+        }
+        // console.log(url);
+      }}
       className={`${
         theme === 'light'
           ? 'group rounded-full bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition cursor-pointer overflow-hidden'

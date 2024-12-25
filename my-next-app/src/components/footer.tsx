@@ -57,7 +57,6 @@ const FooterComponent = () => {
                 '_blank'
               );
             }}
-            color='dodgerblue'
             className='w-5 h-5 cursor-pointer'
           />
           <FaWhatsapp
@@ -65,7 +64,6 @@ const FooterComponent = () => {
               window.open('http://wa.me//+2348064116181', '_blank');
             }}
             className='w-5 h-5 cursor-pointer'
-            color='green'
           />
           <Image
             onClick={() => {
