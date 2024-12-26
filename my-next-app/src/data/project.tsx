@@ -4,7 +4,7 @@
 import { StaticImageData } from 'next/image';
 import trishaImage from '@/assets/images/Trisha - Google Chrome 12_24_2024 3_08_11 PM.png';
 import colorGenImage from '@/assets/images/ColorGenerator.png';
-import { faJs, faReact } from '@fortawesome/free-brands-svg-icons';
+import { faCss3, faJs, faReact } from '@fortawesome/free-brands-svg-icons';
 import nextIcon from '../svgs/nextjs-icon-svgrepo-com.svg';
 import tailwindIcon from '../svgs/tailwind-svgrepo-com.svg';
 import tsIcon from '../svgs/typescript-official-svgrepo-com.svg';
@@ -40,6 +40,12 @@ export const project_data: {
         icon: '',
         color: '',
         svg: tailwindIcon,
+      },
+      {
+        name: 'CSS',
+        icon: faCss3,
+        color: 'dodgerblue',
+        svg: null,
       },
       {
         name: 'Typescript',
@@ -78,6 +84,12 @@ export const project_data: {
         icon: '',
         color: '',
         svg: tailwindIcon,
+      },
+      {
+        name: 'CSS',
+        icon: faCss3,
+        color: 'dodgerblue',
+        svg: null,
       },
       {
         name: 'Typescript',
