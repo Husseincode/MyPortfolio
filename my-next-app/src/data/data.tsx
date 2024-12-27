@@ -3,15 +3,16 @@ import fxImg from '@/assets/images/fx-style.webp';
 import optImg from '@/assets/images/automation-and-optimization.jpg';
 import techStark from '@/assets/images/techSTark.jpg';
 import userCentricImg from '@/assets/images/userCentered.jpeg';
-import testingImg from '@/assets/images/test.png';
+//import testingImg from '@/assets/images/test.png';
 import { faCode, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import nextIcon from '../svgs/nextjs-icon-svgrepo-com.svg';
 import tailwindIcon from '../svgs/tailwind-svgrepo-com.svg';
-import cypressIcon from '../svgs/cypress-svgrepo-com.svg';
-import jestIcon from '../svgs/jest-snapshot-svgrepo-com.svg';
+//import cypressIcon from '../svgs/cypress-svgrepo-com.svg';
+//import jestIcon from '../svgs/jest-snapshot-svgrepo-com.svg';
 import tsIcon from '../svgs/typescript-official-svgrepo-com.svg';
 import {
   faBootstrap,
+  faCentercode,
   faCss3,
   faJs,
   faReact,
@@ -101,25 +102,33 @@ export const skillsData = [
     role: 'User-Centric Design',
     details: `My development goes hand-in-hand with an eye for design. I create user interfaces that are not only functional but also aesthetically pleasing, providing a seamless and enjoyable user journey.`,
     image: userCentricImg,
-  },
-  {
-    id: 5,
-    role: 'Testing and Quality Assurance',
-    details: `I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.`,
-    image: testingImg,
     langs: [
       {
-        name: 'Cypress',
-        icon: null,
-        color: '',
-        svg: cypressIcon,
-      },
-      {
-        name: 'Jest',
-        svg: jestIcon,
-        color: '',
-        icon: null,
+        name: 'User Centric',
+        icon: faCentercode,
+        color: 'dodgerblue',
+        svg: null,
       },
     ],
   },
+  // {
+  //   id: 5,
+  //   role: 'Testing and Quality Assurance',
+  //   details: `I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.`,
+  //   image: testingImg,
+  //   langs: [
+  //     {
+  //       name: 'Cypress',
+  //       icon: null,
+  //       color: '',
+  //       svg: cypressIcon,
+  //     },
+  //     {
+  //       name: 'Jest',
+  //       svg: jestIcon,
+  //       color: '',
+  //       icon: null,
+  //     },
+  //   ],
+  // },
 ];
