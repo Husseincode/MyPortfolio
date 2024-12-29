@@ -29,7 +29,7 @@ export const useVisibility = (
     return () => {
       window.removeEventListener('scroll', makeSectionVisible);
     };
-  }, [ref]);
+  });
 
   return isSectionShown;
 };

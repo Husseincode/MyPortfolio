@@ -1,7 +1,7 @@
 /** @format */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import clsx from 'clsx';
 import { usePageContext } from '@/contexts/pageContext';
 import RainbowButton from '@/components/RainbowButton';
@@ -9,12 +9,13 @@ import Image from 'next/image';
 import sampleImage from '@/assets/svgs/sampleImage.svg';
 import { toast } from 'react-hot-toast';
 import { isValidEmail } from '@/app/test/emailValidity';
+import { useVisibility } from '@/lib/utils/ref';
 import '@/styles/styles.css';
 
 const FirstsectionComponent = () => {
   const { email, setEmail } = usePageContext();
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   const getRef = useRef<HTMLDivElement | null>(null);
+  const isVisible = useVisibility(getRef);
 
   const handleEmail = (e: { target: { value: string } }) => {
     setEmail(e.target.value);
@@ -41,23 +42,6 @@ const FirstsectionComponent = () => {
     )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sectionTop: number | undefined | any =
-        getRef?.current?.getBoundingClientRect()?.top;
-      const windowHeight = window.innerHeight;
-
-      setIsVisible(sectionTop < windowHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <section

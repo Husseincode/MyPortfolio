@@ -3,12 +3,12 @@ import fxImg from '@/assets/images/fx-style.webp';
 import optImg from '@/assets/images/automation-and-optimization.jpg';
 import techStark from '@/assets/images/techSTark.jpg';
 import userCentricImg from '@/assets/images/userCentered.jpeg';
-//import testingImg from '@/assets/images/test.png';
+import testingImg from '@/assets/images/test.png';
 import { faCode, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import nextIcon from '../svgs/nextjs-icon-svgrepo-com.svg';
 import tailwindIcon from '../svgs/tailwind-svgrepo-com.svg';
 //import cypressIcon from '../svgs/cypress-svgrepo-com.svg';
-//import jestIcon from '../svgs/jest-snapshot-svgrepo-com.svg';
+import jestIcon from '../svgs/jest-snapshot-svgrepo-com.svg';
 import tsIcon from '../svgs/typescript-official-svgrepo-com.svg';
 import {
   faBootstrap,
@@ -17,6 +17,8 @@ import {
   faJs,
   faReact,
 } from '@fortawesome/free-brands-svg-icons';
+import reduxSvg from '@/assets/images/redux-svgrepo-com.svg';
+import reduxImg from '@/assets/images/redux-alternatives.jpg';
 
 export const skillsData = [
   {
@@ -95,6 +97,12 @@ export const skillsData = [
         color: 'dodgerblue',
         svg: null,
       },
+      // {
+      //   name: 'Redux',
+      //   icon: '',
+      //   color: '',
+      //   svg: tailwindIcon,
+      // },
     ],
   },
   {
@@ -111,24 +119,38 @@ export const skillsData = [
       },
     ],
   },
-  // {
-  //   id: 5,
-  //   role: 'Testing and Quality Assurance',
-  //   details: `I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.`,
-  //   image: testingImg,
-  //   langs: [
-  //     {
-  //       name: 'Cypress',
-  //       icon: null,
-  //       color: '',
-  //       svg: cypressIcon,
-  //     },
-  //     {
-  //       name: 'Jest',
-  //       svg: jestIcon,
-  //       color: '',
-  //       icon: null,
-  //     },
-  //   ],
-  // },
+  {
+    id: 5,
+    role: 'Testing and Quality Assurance',
+    details: `I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.`,
+    image: testingImg,
+    langs: [
+      // {
+      //   name: 'Cypress',
+      //   icon: null,
+      //   color: '',
+      //   svg: cypressIcon,
+      // },
+      {
+        name: 'Jest',
+        svg: jestIcon,
+        color: '',
+        icon: null,
+      },
+    ],
+  },
+  {
+    id: 6,
+    role: 'Data Management',
+    details: `I use Redux in my Next.js app to manage the global state. It's helpful for keeping track of things like user data, messages, or app settings, and it ensures that these values are consistent across different components.`,
+    image: reduxImg,
+    langs: [
+      {
+        name: 'Redux',
+        svg: reduxSvg,
+        color: '',
+        icon: '',
+      },
+    ],
+  },
 ];

@@ -2,33 +2,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import clsx from 'clsx';
 import { FaFacebook, FaGithub, FaWhatsapp } from 'react-icons/fa';
 import twitterIcon from '@/assets/svgs/twitter-svgrepo-com.svg';
 import '@/styles/styles.css';
 import Image from 'next/image';
+import { useVisibility } from '@/lib/utils/ref';
 
 const FooterComponent = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   const getRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sectionTop: number | undefined | any =
-        getRef?.current?.getBoundingClientRect()?.top;
-      const windowHeight = window.innerHeight;
-
-      setIsVisible(sectionTop < windowHeight);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const isVisible = useVisibility(getRef);
 
   return (
     <footer
