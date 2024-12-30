@@ -11,6 +11,7 @@ import tsIcon from '../svgs/typescript-official-svgrepo-com.svg';
 import viteSvg from '@/assets/images/vite-svgrepo-com.svg';
 import jarvisImage from '@/assets/images/Jarvis - Built with Next.js - Google Chrome 12_29_2024 7_04_51 PM.png';
 import openAI from '@/assets/svgs/openai-svgrepo-com.svg';
+import firebaseIcon from '@/assets/svgs/firebase-svgrepo-com.svg';
 
 export const project_data: {
   projectName: string;
@@ -154,6 +155,12 @@ export const project_data: {
         icon: '',
         color: '',
         svg: openAI,
+      },
+      {
+        name: 'Firebase',
+        icon: '',
+        color: '',
+        svg: firebaseIcon,
       },
     ],
   },
