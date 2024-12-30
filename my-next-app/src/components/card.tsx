@@ -39,7 +39,7 @@ const Card: FC<CardProps> = ({
       title={title ? title : projectName}
       style={style}
       className={clsx(
-        `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border border-gray-600 ${className} flex flex-col justify-between gap-6 bg-transparent py-2 px-4 shadow-md`
+        `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border border-gray-600 ${className} flex flex-col justify-between gap-2 bg-transparent py-2 px-4 shadow-md`
       )}>
       <div className='py-2 items-center font-medium text-center border-b-[1px] border-gray-600 flex justify-between text-3xl'>
         <span>{projectName}</span>
@@ -65,10 +65,13 @@ const Card: FC<CardProps> = ({
         <span className='text-left text-gray-500 text-base'>{description}</span>
       </div>
 
-      <div className='flex flex-wrap gap-2'>
-        {langs?.map((item, idx: number) => (
-          <Languauge key={idx} {...item} />
-        ))}
+      <div className='flex flex-col gap-2'>
+        <h2>Technology used</h2>
+        <div className='flex flex-wrap gap-2'>
+          {langs?.map((item, idx: number) => (
+            <Languauge key={idx} {...item} />
+          ))}
+        </div>
       </div>
     </div>
   );
