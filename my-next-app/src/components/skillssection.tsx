@@ -71,7 +71,7 @@ const SkillsSectionComponent = () => {
         </p>
       </div>
       <section
-        className={`container flex flex-row gap-8 py-12 scrollbar-container scrollbar-hide overflow-x-scroll min-w-[100%] overflow-hidden`}>
+        className={`container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%] overflow-hidden`}>
         {skillsData.map((card, idx: number) => {
           const { id, role, details, image, langs, color } = card;
           const shadow = color[1];
@@ -81,15 +81,15 @@ const SkillsSectionComponent = () => {
               // ref={getRef}
               style={{
                 background: `linear-gradient(180deg, ${color[0]}, ${color[1]})`,
-                boxShadow: `0px 25px 50px -12px ${shadow}`,
+                boxShadow: `0px 25px 40px -12px ${shadow}`,
               }}
               className={clsx(
                 `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl ${
                   isVisible && 'slide-from-right'
                 } ${theme === 'dark' ? 'border-gray-600' : ''} ${
                   idx % 2 === 0
-                    ? 'transform -rotate-[5deg]'
-                    : 'transform rotate-[10deg]'
+                    ? 'md:transform md:-rotate-[1deg]'
+                    : 'md:transform md:rotate-[1deg]'
                 } flex flex-col justify-between gap-3 bg-transparent py-4 px-4 `
               )}>
               <Image
