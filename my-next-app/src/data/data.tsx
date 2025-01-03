@@ -26,6 +26,7 @@ export const skillsData = [
     role: 'Frontend Web Development',
     details: `Creating beautiful and functional web experiences is my forte. Using the latest technologies and best practices, I design and build websites that captivate and engage users.`,
     image: fxImg,
+    color: ['lightblue', 'dodgerblue', 'blue'],
     langs: [
       {
         name: 'HTML',
@@ -57,7 +58,8 @@ export const skillsData = [
     id: 2,
     role: 'Technology Stack',
     details: `I'm well-versed in the industry's most popular frontend technologies, including HTML5, CSS3, JavaScript, and frameworks like ReactJs and NextJs.`,
-    image: techStark,
+    image: optImg,
+    color: ['orange', 'red', 'red'],
     langs: [
       {
         name: 'ReactJs',
@@ -89,7 +91,8 @@ export const skillsData = [
     id: 3,
     role: 'Web Optimization',
     details: `Performance matters. I optimize websites and apps for speed, ensuring your users enjoy a fast and responsive experience, which in turn boosts user satisfaction and SEO rankings.`,
-    image: optImg,
+    image: techStark,
+    color: ['teal', 'green', 'teal'],
     langs: [
       {
         name: 'Lazy Loading',
@@ -110,6 +113,7 @@ export const skillsData = [
     role: 'User-Centric Design',
     details: `My development goes hand-in-hand with an eye for design. I create user interfaces that are not only functional but also aesthetically pleasing, providing a seamless and enjoyable user journey.`,
     image: userCentricImg,
+    color: ['yellow', 'orange', 'yellow'],
     langs: [
       {
         name: 'User Centric',
@@ -124,6 +128,7 @@ export const skillsData = [
     role: 'Testing and Quality Assurance',
     details: `I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.`,
     image: testingImg,
+    color: ['brown', 'chocolate', 'amber'],
     langs: [
       // {
       //   name: 'Cypress',
@@ -144,6 +149,7 @@ export const skillsData = [
     role: 'Data Management',
     details: `I use Redux in my Next.js app to manage the global state. It's helpful for keeping track of things like user data, messages, or app settings, and it ensures that these values are consistent across different components.`,
     image: reduxImg,
+    color: ['pink', 'purple', 'purple'],
     langs: [
       {
         name: 'Redux',

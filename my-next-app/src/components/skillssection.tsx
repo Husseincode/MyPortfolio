@@ -71,19 +71,26 @@ const SkillsSectionComponent = () => {
         </p>
       </div>
       <section
-        className={`container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%] overflow-hidden`}>
-        {skillsData.map((card) => {
-          const { id, role, details, image, langs } = card;
+        className={`container flex flex-row gap-8 py-12 scrollbar-container scrollbar-hide overflow-x-scroll min-w-[100%] overflow-hidden`}>
+        {skillsData.map((card, idx: number) => {
+          const { id, role, details, image, langs, color } = card;
+          const shadow = color[1];
           return (
             <div
               key={id}
-              ref={getRef}
+              // ref={getRef}
+              style={{
+                background: `linear-gradient(180deg, ${color[0]}, ${color[1]})`,
+                boxShadow: `0px 25px 50px -12px ${shadow}`,
+              }}
               className={clsx(
-                `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border  ${
+                `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl ${
                   isVisible && 'slide-from-right'
-                } ${
-                  theme === 'dark' ? 'border-gray-600' : ''
-                } flex flex-col justify-between gap-3 bg-transparent py-4 px-4 shadow-md`
+                } ${theme === 'dark' ? 'border-gray-600' : ''} ${
+                  idx % 2 === 0
+                    ? 'transform -rotate-[5deg]'
+                    : 'transform rotate-[10deg]'
+                } flex flex-col justify-between gap-3 bg-transparent py-4 px-4 `
               )}>
               <Image
                 src={image}
@@ -93,10 +100,10 @@ const SkillsSectionComponent = () => {
                 className='w-full h-[150px] rounded-t-xl object-cover object-center'
               />
               <div className='flex flex-col gap-3'>
-                <span className='text-lg font-semibold text-left w-fit'>
+                <span className='text-lg font-semibold text-white text-left w-fit'>
                   {role}
                 </span>
-                <span className='text-left text-gray-500 text-base'>
+                <span className='text-left text-gray-200 text-base'>
                   {details}
                 </span>
               </div>
