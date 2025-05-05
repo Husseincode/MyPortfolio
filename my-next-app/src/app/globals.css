@@ -100,7 +100,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   @apply bg-blue-300; /* Handle color */
-  border-radius: 50%; /* Rounded corners */
+  /* Rounded corners */
 }
 /* 
 ::-webkit-scrollbar-thumb:hover {
