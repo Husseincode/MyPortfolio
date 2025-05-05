@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { usePageContext } from '@/contexts/pageContext';
 import RainbowButton from '@/components/RainbowButton';
 import Image from 'next/image';
-import sampleImage from '@/assets/images/hussein.jpg';
+import sampleImage from '@/assets/images/HUSS.png';
 import { toast } from 'react-hot-toast';
 import { isValidEmail } from '@/app/test/emailValidity';
 import '@/styles/styles.css';
@@ -104,7 +104,7 @@ const FirstsectionComponent = () => {
             alt=''
             width={270}
             height={170}
-            className='w-full lg:h-[550px] object-contain lg:object-cover lg:rounded-lg rounded-md shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition cursor-pointer overflow-hidden'
+            className='w-full lg:h-[550px] object-contain lg:object-cover lg:object-left-top lg:rounded-lg rounded-md shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition cursor-pointer overflow-hidden'
           />
         </div>
       </div>
