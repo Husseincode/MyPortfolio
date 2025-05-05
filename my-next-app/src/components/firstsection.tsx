@@ -1,21 +1,19 @@
 /** @format */
-
+'use client';
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { usePageContext } from '@/contexts/pageContext';
 import RainbowButton from '@/components/RainbowButton';
 import Image from 'next/image';
-import sampleImage from '@/assets/svgs/sampleImage.svg';
+import sampleImage from '@/assets/images/hussein.jpg';
 import { toast } from 'react-hot-toast';
 import { isValidEmail } from '@/app/test/emailValidity';
-import { useVisibility } from '@/lib/utils/ref';
 import '@/styles/styles.css';
+import { motion } from 'framer-motion';
 
 const FirstsectionComponent = () => {
   const { email, setEmail } = usePageContext();
-  const getRef = useRef<HTMLDivElement | null>(null);
-  const isVisible = useVisibility(getRef);
 
   const handleEmail = (e: { target: { value: string } }) => {
     setEmail(e.target.value);
@@ -49,11 +47,12 @@ const FirstsectionComponent = () => {
         `w-full flex justify-center pt-[70px] md:pt-[100px] lg:pt-[110px] md:px-8 px-6`
       )}>
       <div className='md:w-[1440px] w-full flex flex-col-reverse lg:flex-row lg:justify-between overflow-hidden'>
-        <div
-          ref={getRef}
-          className={`h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center ${
-            isVisible && 'slide-from-left'
-          }`}>
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className={`h-[inherit] w-full lg:w-[500px] flex flex-col gap-4 py-3 lg:p-3 md:justify-center `}>
           <h1
             className={clsx(
               `lg:text-5xl text-4xl block leading-tight font-bold slide-from-top`
@@ -98,14 +97,14 @@ const FirstsectionComponent = () => {
               {'Require Offer'.toUpperCase()}
             </RainbowButton>
           </form>
-        </div>
+        </motion.div>
         <div className='lg:flex lg:justify-end lg:items-end lg:h-[inherit] w-full md:full lg:w-1/2 mt-6 md:mt-0 slide-from-right'>
           <Image
             src={sampleImage}
             alt=''
             width={270}
             height={170}
-            className='w-full lg:w-fit lg:h-[550px]'
+            className='w-full lg:h-[550px] object-contain lg:object-cover lg:rounded-lg rounded-md shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition cursor-pointer overflow-hidden'
           />
         </div>
       </div>

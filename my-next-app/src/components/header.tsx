@@ -67,20 +67,6 @@ const HeaderComponent = () => {
         <div className='md:gap-6 gap-4 items-center flex'>
           {/* <FaTwitter /> */}
           {theme === 'light' ? (
-            // <Moon
-            //   className={`w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer ${
-            //     theme === 'light' && 'slide-from-top'
-            //   }`}
-            //   color={'#52525b'}
-            //   onClick={changeTheme}
-            // />
-            // <Sun
-            //   className={`w-7 h-7 text-zinc-600 md:w-6 md:h-6 cursor-pointer ${
-            //     theme === 'light' && 'slide-from-bottom'
-            //   }`}
-            //   color={'#52525b'}
-            //   onClick={changeTheme}
-            // />
             <button
               type='button'
               onClick={changeTheme}

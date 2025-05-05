@@ -3,6 +3,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { usePageContext } from '@/contexts/pageContext';
+import { motion } from 'framer-motion';
 
 interface RainbowButtonProps {
   children: React.ReactNode;
@@ -21,7 +22,9 @@ const RainbowButton = ({
 }: RainbowButtonProps) => {
   const { theme } = usePageContext();
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      // transition={{ delay: 0.3 }}
       title={title}
       disabled={isDisabled}
       onClick={isDisabled ? undefined : onClick}
@@ -34,7 +37,7 @@ const RainbowButton = ({
         } ${className} transition duration-500 px-3 py-2`
       )}>
       {children}
-    </button>
+    </motion.button>
   );
 };
 

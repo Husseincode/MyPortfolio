@@ -1,22 +1,18 @@
 /** @format */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 import { usePageContext } from '@/contexts/pageContext';
 import { skillsData } from '@/data/data';
 import clsx from 'clsx';
 import Image from 'next/image';
-import React, { useRef } from 'react';
+import React from 'react';
 import '@/styles/styles.css';
-import { useVisibility } from '@/lib/utils/ref';
 import Languauge from './languauge';
 //import axios from 'axios';
+import { motion } from 'framer-motion';
 
 const SkillsSectionComponent = () => {
-  const getRef = useRef<HTMLDivElement | null>(null);
   const { theme } = usePageContext();
-  const textRef = useRef<HTMLDivElement | null>(null);
-
-  const isVisible = useVisibility(getRef);
-  const isSecondSectionTextVisible = useVisibility(textRef);
 
   // const fetchVercelProjects = async () => {
   //   const API_TOKEN = process.env.VERCEL_API_TOKEN; // Replace with your actual Vercel API token
@@ -53,11 +49,12 @@ const SkillsSectionComponent = () => {
       className={clsx(
         `w-full flex flex-col justify-center items-center mt-[10px] lg:mt-[80px] md:px-8 px-4 overflow-hidden`
       )}>
-      <div
-        ref={textRef}
-        className={`md:w-[1440px] w-full flex flex-col items-center justify-center gap-6 lg:w-10/12 ${
-          isSecondSectionTextVisible && 'slide-from-left'
-        }`}>
+      <motion.div
+        initial={{ x: 50, opacity: 0 }}
+        viewport={{ once: true }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className={`md:w-[1440px] w-full flex flex-col items-center justify-center gap-6 lg:w-10/12`}>
         <p className='font-bold text-base slide-from-right'>
           {'My Skills'.toUpperCase()}
         </p>
@@ -69,14 +66,18 @@ const SkillsSectionComponent = () => {
           Crafting immersive online experiences is not just a job but my
           calling. Discover below how I can help you.
         </p>
-      </div>
+      </motion.div>
       <section
         className={`container flex flex-row gap-8 py-12 scrollbar-container overflow-x-scroll min-w-[100%] overflow-hidden`}>
         {skillsData.map((card, idx: number) => {
           const { id, role, details, image, langs, color } = card;
           const shadow = color[1];
           return (
-            <div
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              viewport={{ once: true }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
               key={id}
               // ref={getRef}
               style={{
@@ -85,8 +86,8 @@ const SkillsSectionComponent = () => {
               }}
               className={clsx(
                 `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl ${
-                  isVisible && 'slide-from-right'
-                } ${theme === 'dark' ? 'border-gray-600' : ''} ${
+                  theme === 'dark' ? 'border-gray-600' : ''
+                } ${
                   idx % 2 === 0
                     ? 'md:transform md:-rotate-[1deg]'
                     : 'md:transform md:rotate-[1deg]'
@@ -119,7 +120,7 @@ const SkillsSectionComponent = () => {
                   />
                 ))}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </section>

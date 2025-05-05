@@ -1,10 +1,12 @@
 /** @format */
+'use client';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from 'clsx';
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 import Languauge from './languauge';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 interface CardProps {
   id?: string;
@@ -33,13 +35,17 @@ const Card: FC<CardProps> = ({
 }) => {
   const [isScaled, setIsScaled] = useState<boolean>(false);
   return (
-    <div
+    <motion.div
+      initial={{ y: 50, opacity: 0 }}
+      viewport={{ once: true }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.3 }}
       key={id}
       ref={ref}
       title={title ? title : projectName}
       style={style}
       className={clsx(
-        `min-h-[380px] pb-[30px] min-w-full md:w-[380px] md:min-w-[340px] rounded-xl border border-gray-600 ${className} flex flex-col justify-between gap-2 bg-transparent py-2 px-4 shadow-md`
+        `min-h-[380px] shrink-0 pb-[30px] w-full md:w-[380px] md:min-w-[340px] rounded-xl border border-gray-600 ${className} flex flex-col justify-between gap-2 bg-transparent py-2 px-4 shadow-md`
       )}>
       <div className='py-2 items-center font-medium text-center border-b-[1px] border-gray-600 flex justify-between text-3xl'>
         <span>{projectName}</span>
@@ -73,7 +79,7 @@ const Card: FC<CardProps> = ({
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,19 +1,20 @@
 /** @format */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 //import React from 'react'
 
 import React, { useEffect, useState } from 'react';
 
-export const useVisibility = (
-  ref: React.RefObject<
-    | HTMLDivElement
-    | HTMLSpanElement
-    | HTMLElement
-    | HTMLHeadingElement
-    | HTMLButtonElement
-    | HTMLLabelElement
-  >
-) => {
+type refTypes = React.RefObject<
+  | HTMLDivElement
+  | HTMLSpanElement
+  | HTMLElement
+  | HTMLHeadingElement
+  | HTMLButtonElement
+  | HTMLLabelElement
+>;
+
+export const useVisibility = (ref: refTypes, once?: boolean) => {
   const [isSectionShown, setIsSectionShown] = useState<boolean>(false);
 
   const makeSectionVisible = () => {
