@@ -18,7 +18,7 @@ export const Projects = () => {
           className='font-semibold border-b-[3px] border-blue-500 pb-1 md:text-5xl text-4xl slide-from-left text-center'>
           Projects
         </motion.h2>
-        <div className='flex gap-[30px] flex-row overflow-x-auto w-full'>
+        <div className='flex gap-[30px] flex-row overflow-x-auto w-full scrollbar-hide overflow-y-clip'>
           {project_data.map((item, idx: number) => (
             <Card
               key={idx}
